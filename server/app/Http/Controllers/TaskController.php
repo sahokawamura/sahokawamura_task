@@ -14,18 +14,13 @@ class TaskController extends Controller
         return view('tasks.index', ['tasks' => $tasks]);
     }
 
-    public function create()
-    {
-        return view('tasks.create');
-    }
-
     public function store(TaskRequest $request)
     {
         $task = new Task;
 
         $task->title = $request->title;
         $task->body = $request->body;
-        $task->timestamps =false;
+        $task->timestamps = false;
 
         $task->save();
 
